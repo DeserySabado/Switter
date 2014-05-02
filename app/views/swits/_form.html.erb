@@ -1,0 +1,24 @@
+<%= form_for(@swit) do |f| %>
+  <% if @swit.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@swit.errors.count, "error") %> prohibited this swit from being saved:</h2>
+
+      <ul>
+      <% @swit.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <br>
+
+    <%= f.text_field :post, :placeholder => 'Write a Swit..' %>
+
+
+  </div>
+  <div class="actions">
+    <%= f.submit 'Swit', :class => "button right"%>
+  </div>
+<% end %>

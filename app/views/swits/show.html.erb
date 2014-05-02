@@ -1,0 +1,115 @@
+
+<div id= "my_profile">
+
+<h4>
+  <%= current_user.username %>
+</h4>
+
+<%= render 'form' %>
+<h6>
+<%= link_to 'Change Password', edit_user_registration_path %>
+</h4>
+</div>
+
+<div id= "my_swits" class= "small-12.large-4.columns">
+<% @swits.each do |swit| %>
+<div>
+
+<br>
+<br>
+<% if current_user.username ==  swit.user_id  %>
+<b><h5>
+    <%= swit.user_id %></b><br>
+    <h6>
+    <%= swit.post %>
+  
+</h4>
+
+
+<%#=============================== sweet form==========================================================%>
+
+ <% @sweet= Sweet.new%>
+
+<%= form_for([swit, @sweet], :html => {:class => 'sweet_form'}) do |f| %>
+  <% if @sweet.errors.any? %>
+    <div id="error_explanation">
+      <h6><%= pluralize(@sweet.errors.count, "error") %> prohibited this sweet from being saved:</h2>
+
+      <ul>
+      <% @sweet.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+ <input id="sweet_swit_id" name="sweet[swit_id]" type="hidden" value="<%= @swit.id%>" />
+ 
+ 
+   
+     <input name="commit" type="submit" class= "sweet"value="" />
+
+<% end %>
+
+
+
+<%#=============================== sweet form==========================================================%>
+
+
+<%#=============================== sour form==========================================================%>
+
+ <% @sour= Sour.new%>
+
+<%= form_for([swit, @sour], :html => {:class => 'sour_form'}) do |f| %>
+  <% if @sour.errors.any? %>
+    <div id="error_explanation">
+      <h6><%= pluralize(@sour.errors.count, "error") %> prohibited this sour from being saved:</h2>
+
+      <ul>
+      <% @sour.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+ <input id="sour_swit_id" name="sour[swit_id]" type="hidden" value="<%= @swit.id%>" />
+ 
+ 
+   
+     <input name="commit" type="submit" class= "sour"value="" />
+
+<% end %>
+
+
+
+<%#=============================== sweet form==========================================================%>
+
+
+<%= link_to pluralize(swit.sweets.count.to_s, "Sweet"), swit_sweets_path(swit)  %>
+<%= link_to pluralize(swit.sours.count.to_s, "Sour"), swit_sours_path(swit)  %>
+<%= link_to pluralize(swit.comments.count.to_s, "Comment"), new_swit_comment_path(swit)  %>
+
+
+ <%= link_to 'edit', edit_swit_path(swit) %>
+ <%= link_to 'delete', swit, method: :delete, data: { confirm: 'Are you sure?' } %>
+<% end %>
+
+<br>
+
+<%= render swit.comments %> 
+<% @comment= Comment.new
+    @swit= swit
+%>
+
+<%= render 'comments/form'  %>
+
+
+</div>
+<% end %>
+<br>
+
+
+
+<% end %>
+</div>

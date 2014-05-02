@@ -1,0 +1,12 @@
+
+%h5= @swit.user_id
+%h2= @swit.post
+- @comments.each do |comment|
+
+%b
+  = comment.user_id
+%br/
+%h3= comment.body
+= link_to 'Delete comment', [@swit, comment], confirm: 'Are you sure?', method: :delete
+= link_to 'Back', swits_path
+%br/

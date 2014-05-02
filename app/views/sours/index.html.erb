@@ -1,0 +1,31 @@
+<div id= "sign_up">
+<h1>Listing sours</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>User</th>
+      <th>Swit</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @sours.each do |sour| %>
+      <tr>
+        <td><%= sour.user_id %></td>
+        <td><%= sour.swit_id %></td>
+        
+        <td> <%= link_to 'Delete sour', [@swit, sour], confirm: 'Are you sure?', method: :delete %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+ <h7>
+   <%= link_to 'Back', swits_path %>
+</div>
+
+
+

@@ -1,0 +1,44 @@
+!!!
+%html{lang: "en"}
+  %head
+    %meta{charset: "utf-8"}/
+    %meta{content: "width=device-width, initial-scale=1.0", name: "viewport"}/
+    %title= content_for?(:title) ? yield(:title) : "foundation-rails"
+    = stylesheet_link_tag    "application"
+    = javascript_include_tag "vendor/modernizr"
+    = csrf_meta_tags
+  %body
+    .fixed
+      %nav.top-bar{"data-topbar" => ""}
+        %ul.title-area
+          %li.name
+            %h1
+              = link_to swits_path do
+                = image_tag "logo.png", class: "logo"
+          %li.toggle-topbar.menu-icon
+            %a{href: "#"} Menu
+        %section.top-bar-section
+          / Right Nav Section
+          %ul.right
+            %li
+              %a{href: "#"}
+                - if user_signed_in?
+                  = link_to "My Profile"
+
+            %li
+              %a{href: "#"}
+                - if user_signed_in?
+                  = link_to "Dashboard", swits_path
+            %li.active
+              - if user_signed_in?
+                %a
+                  = link_to "Log out", destroy_user_session_path, :method => :delete
+          
+    .row
+      .small-12.large-3.columns
+      #main.small-12.large-10.columns
+        = yield
+        = javascript_include_tag "application"
+        %p.notice= notice
+        %p.alert= alert
+      .small-12.large-3.columns

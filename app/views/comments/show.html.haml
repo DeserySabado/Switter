@@ -1,0 +1,14 @@
+#sign_up
+  %p
+    %strong Body:
+    = @comment.body
+  %p
+    %strong User:
+    = @comment.user_id
+  %p
+    %strong Swit:
+    = @comment.swit_id
+  = link_to 'Edit', edit_swit_comment_path(@swit, @comment)
+  |
+  \#{link_to 'Back', swit_comments_path(@swit)}
+

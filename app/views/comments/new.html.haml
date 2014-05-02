@@ -1,0 +1,17 @@
+#sign_up
+  .p
+    %h5= @swit.user_id
+    %h6= @swit.post
+    %b= 'Comments:'
+  - @comments.each do |comment|
+    - if comment.user_id != nil
+      .p
+        %h6
+        %b
+          = comment.user_id
+        %h6
+          = comment.body
+  = render 'form'
+
+  .h7
+    = link_to 'Back', swits_path

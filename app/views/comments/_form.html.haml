@@ -1,0 +1,14 @@
+= form_for([@swit, @comment]) do |f|
+  - if @comment.errors.any?
+    #error_explanation
+      %h4
+        = pluralize(@comment.errors.count, "error")
+        prohibited this comment from being saved:
+      %ul
+        - @comment.errors.full_messages.each do |msg|
+          %li= msg
+  .field
+    = f.text_field :body, :placeholder => 'Write a Comment..'
+  %input#comment_swit_id{name: "comment[swit_id]", type: "hidden", value: @swit.id}/
+  .actions
+    = f.submit 'Comment', class: 'button right'

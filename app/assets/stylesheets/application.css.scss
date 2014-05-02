@@ -1,0 +1,134 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the top of the
+ * compiled file, but it's generally better to create a new file per style scope.
+ *
+ *= require_self
+ *= require foundation_and_overrides
+
+ *= require_tree .
+ */
+@import 'foundation-icons';
+
+#header{
+  margin-top: 150px;
+	height: 70px;
+	width: 100%;
+	position: absolute;
+	background: black;
+  
+
+}
+.fixed{
+    top:0px;
+    z-index:2;
+    position:fixed;
+    height: 70px;
+}
+
+.logo{
+      width: auto;
+        top:0px;
+         z-index:2;
+         position:fixed;
+      height: 70px;
+}
+
+#main{
+	width: 100%;
+}
+
+#register{
+    width: 50%;
+    background: white;
+    padding-bottom: 20px;
+    padding-top: 20px;
+    float: right;
+    padding-left: 20px;
+    padding-right: 20px;
+    margin-top: 50px;
+}
+
+#sign_up{
+    width: 80%;
+    background: white;
+    padding-bottom: 70px;
+    padding-top: 70px;
+    padding-left: 150px;
+    padding-right: 150px;
+    margin-left: 90px;
+
+}
+
+
+
+#my_profile{
+    background: white;
+    width: 370px;
+    float: left;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 20px;
+}
+
+#my_swits{
+    background: white;
+    width: 60%;
+    float: right;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+#change_password{
+    background: white;
+    width: 60%;
+    float: right;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.top-bar {
+    background: black;
+    *zoom: 1;
+    overflow: visible;
+}
+
+.sweet { 
+    background-image: image-url('sweet.png');
+    display:inline;
+    background-repeat:no-repeat;
+    width: 17px;
+    height: 16px;
+    border: 0px;
+    background-size:16px;
+    background-color:transparent;
+    cursor: pointer;
+    outline: 0;
+}
+
+
+.sour{ 
+    background-image: image-url('sour.png');
+    display:inline;
+    background-repeat:no-repeat;
+    width: 17px;
+    height: 16px;
+    border: 0px;
+    background-size:16px;
+    background-color:transparent;
+    cursor: pointer;
+    outline: 0;
+}
+.sweet:hover{ 
+    width: 20px;
+    height: 20px;
+    background-size:20px;
+}
+.sweet_form{
+	display:inline;
+}
