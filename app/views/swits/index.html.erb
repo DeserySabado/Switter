@@ -87,7 +87,7 @@
 
 <%= link_to pluralize(swit.sweets.count.to_s, "Sweet"), swit_sweets_path(swit)  %>
 <%= link_to pluralize(swit.sours.count.to_s, "Sour"), swit_sours_path(swit)  %>
-<%= link_to "View Comments", new_swit_comment_path(swit)  %>
+<%= link_to pluralize(swit.sours.count.to_s, "Comment"), new_swit_comment_path(swit)  %>
 
 
 <% if current_user.username ==  swit.user_id  %>
@@ -97,7 +97,7 @@
 
 <br>
 
-<%= render swit.comments %> 
+
 <% @comment= Comment.new
     @swit= swit
 %>
